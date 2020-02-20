@@ -8,5 +8,5 @@
 #include <string>
 
 std::string lab2();
-
+void form(int *, int n, int*);
 #endif //CPP_PSU_MAIN_H

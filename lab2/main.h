@@ -9,5 +9,5 @@
 
 std::string lab2();
 void form(int *, int n, int*);
-int mean (int *, int);
+float mean (int *, int);
 #endif //CPP_PSU_MAIN_H

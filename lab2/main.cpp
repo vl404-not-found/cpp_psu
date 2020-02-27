@@ -18,8 +18,8 @@ std::string lab2() {
 
     form(main_array, n, slave_array);
     array_print(slave_array, n);
-    int first_result = mean(main_array, n);
-    int second_result = mean(slave_array, n);
-    std::cout << first_result << "\n" << second_result;
+    float first_result = mean(main_array, n);
+    float second_result = mean(slave_array, n);
+    std::cout << first_result << "\n" << second_result << std::endl;
     return "Ok";
 }

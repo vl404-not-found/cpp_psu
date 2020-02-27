@@ -14,4 +14,4 @@ void fill_struct(communicate *item, int N){
         std::cout << "Цена одной минуты связи: ";
         std::cin >> item[n].price;
     }
-};
+}

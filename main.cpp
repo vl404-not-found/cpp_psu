@@ -1,8 +1,8 @@
 #include <iostream>
-#include "lab2/main.h"
+#include "lab3/main.h"
 
 
 int main() {
-    std::cout << lab2();
+    std::cout << lab3();
     return 0;
 }

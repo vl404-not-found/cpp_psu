@@ -15,3 +15,4 @@ void fill_struct(communicate *item, int N){
         std::cin >> item[n].price;
     }
 }
+

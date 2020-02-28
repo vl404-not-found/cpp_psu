@@ -16,6 +16,8 @@ struct communicate{
 std::string lab3();
 void fill_struct(communicate *, int);
 void print_struct(communicate *, int);
+int mean_price(communicate *, int);
+int max_radius(communicate *, int);
 
 
 #endif //CPP_PSU_MAIN_H

@@ -3,4 +3,4 @@ project(cpp_psu)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(cpp_psu main.cpp lab2/main.cpp lab2/main.h lab2/form.cpp lib/lib.cpp lib/lib.h lab2/mean.cpp lab3/main.cpp lab3/main.h lab3/fill_struct.cpp lab3/print_struct.cpp lab3/mean_price.cpp)
+add_executable(cpp_psu main.cpp lab2/main.cpp lab2/main.h lab2/form.cpp lib/lib.cpp lib/lib.h lab2/mean.cpp lab3/main.cpp lab3/main.h lab3/fill_struct.cpp lab3/print_struct.cpp lab3/mean_price.cpp lab3/max_radius.cpp)

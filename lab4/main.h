@@ -15,5 +15,5 @@ struct book{
 
 std::string lab4();
 void fill_link_struct(book *);
-void delete_book_author(book *, std::string);
+void delete_book_author(book *, const std::string&);
 #endif //CPP_PSU_MAIN_H

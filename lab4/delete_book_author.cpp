@@ -6,8 +6,7 @@
 #include <iostream>
 #include "main.h"
 
-void delete_book_author(book * address, std::string author){
-
+void delete_book_author(book * address, const std::string& author){
     while (address->next != nullptr){
         if (address->author == author){
             book * conn = address->next->next;

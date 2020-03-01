@@ -1,4 +1,4 @@
-#include "lab5/main.h"
+#include "mainwindow.h"
 
 #include <QApplication>
 

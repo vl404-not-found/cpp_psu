@@ -3,4 +3,13 @@ project(cpp_psu)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(cpp_psu main.cpp lab2/main.cpp lab2/main.h lab2/form.cpp lib/lib.cpp lib/lib.h lab2/mean.cpp lab3/main.cpp lab3/main.h lab3/fill_struct.cpp lab3/print_struct.cpp lab3/mean_price.cpp lab3/max_radius.cpp lab4/main.cpp lab4/main.h lab4/fill_link_struct.cpp lab4/delete_book_author.cpp)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+
+find_package(Qt5 COMPONENTS Widgets LinguistTools REQUIRED)
+
+add_executable(cpp_psu main.cpp lab5/main.h lab5/main.cpp lab5/ui_mainwindow.cpp lab5/ui_mainwindow.h lab5/mainwindow.ui)
+
+
+target_link_libraries(cpp_psu PRIVATE Qt5::Widgets)

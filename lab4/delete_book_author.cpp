@@ -3,7 +3,6 @@
 //
 
 #include <string>
-#include <iostream>
 #include "main.h"
 
 void delete_book_author(book * address, const std::string& author){

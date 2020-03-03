@@ -1,15 +1,14 @@
-//
-// Created by vlad on 29.02.2020.
-//
-
-#include "main.h"
+#include "mainwindow.h"
 
 #include <QApplication>
 
-//int lab5(int argc, char *argv[])
-//{
-//    QApplication application(argc, argv);
-//    MainWindow w;
-//    w.show();
-//    return application.exec();
-//}
+
+
+
+int main(int argc, char *argv[])
+{
+    QApplication a(argc, argv);
+    MainWindow w;
+    w.show();
+    return a.exec();
+}

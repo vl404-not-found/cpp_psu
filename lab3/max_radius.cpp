@@ -3,7 +3,7 @@
 //
 
 #include <iostream>
-#include "main.h"
+#include "lab3.h"
 
 int max_radius(communicate *item, int N){
     int result = item[0].price;

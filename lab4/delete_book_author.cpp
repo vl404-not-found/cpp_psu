@@ -3,7 +3,7 @@
 //
 
 #include <string>
-#include "main.h"
+#include "lab4.h"
 
 void delete_book_author(book * address, const std::string& author){
     while (address->next != nullptr){

@@ -3,15 +3,15 @@
 //
 
 #include <iostream>
-#include "main.h"
+#include "lab3.h"
 
 void fill_struct(communicate *item, int N){
     for (int n = 0; n < N; n++) {
-        std::cout << "\nТип: ";
+        std::cout << "\nType: ";
         std::cin >> item[n].type_of_com;
-        std::cout << "Радиус действия: ";
+        std::cout << "Radius: ";
         std::cin >> item[n].radius;
-        std::cout << "Цена одной минуты связи: ";
+        std::cout << "Price: ";
         std::cin >> item[n].price;
     }
 }

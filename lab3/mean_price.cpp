@@ -2,7 +2,7 @@
 // Created by vlad on 27.02.2020.
 //
 
-#include "main.h"
+#include "lab3.h"
 
 int mean_price(communicate *item, int N){
     int result = 0;

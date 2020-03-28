@@ -3,19 +3,19 @@
 //
 
 #include <iostream>
-#include "main.h"
+#include "lab4.h"
 
 void fill_link_struct(book *address){
     bool continue_var = true;
     while (continue_var) {
-        std::cout << "\nИмя: ";
+        std::cout << "\nName: ";
         std::cin >> address->name;
-        std::cout << "Автор: ";
+        std::cout << "Author: ";
         std::cin >> address->author;
-        std::cout << "Год: ";
+        std::cout << "Year: ";
         std::cin >> address->year;
 
-        std::cout << "Продолжить вводить книги(0/1)? \n";
+        std::cout << "Continue input  books (0/1)? \n";
         std::cin >> continue_var;
         if (continue_var){
             book *new_item = new book;

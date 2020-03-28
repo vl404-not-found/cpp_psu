@@ -3,11 +3,11 @@
 //
 
 #include <iostream>
-#include "main.h"
+#include "lab2.h"
 #include "../lib/lib.h"
 
 std::string lab2() {
-    std::cout << "Введите кол-во символов: ";
+    std::cout << "Enter the number of characters: ";
     int n = 0;
     std::cin >> n;
     int *main_array = new int[n];
@@ -21,5 +21,5 @@ std::string lab2() {
     float first_result = mean(main_array, n);
     float second_result = mean(slave_array, n);
     std::cout << first_result << "\n" << second_result << std::endl;
-    return "Ok";
+    return "\nOk";
 }

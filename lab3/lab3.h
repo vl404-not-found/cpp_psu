@@ -2,7 +2,7 @@
 // Created by vlad on 27.02.2020.
 //
 
-#ifndef CPP_PSU_MAIN_H
+#ifndef CPP_PSU_LAB3_H
 #define CPP_PSU_MAIN_H
 
 #include <string>
@@ -20,4 +20,4 @@ int mean_price(communicate *, int);
 int max_radius(communicate *, int);
 
 
-#endif //CPP_PSU_MAIN_H
+#endif //CPP_PSU_LAB3_H

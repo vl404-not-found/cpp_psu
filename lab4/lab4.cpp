@@ -4,7 +4,7 @@
 
 #include <string>
 #include <iostream>
-#include "main.h"
+#include "lab4.h"
 
 std::string lab4() {
     book *first = new book;
@@ -13,7 +13,7 @@ std::string lab4() {
     fill_link_struct(first);
     print_all(first);
 
-    std::cout << "Удалим все книги: ";
+    std::cout << "Delete all books (author): ";
     std::cin >> author;
     delete_book_author(first, author);
     print_all(first);

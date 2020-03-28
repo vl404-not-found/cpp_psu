@@ -2,26 +2,28 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QApplication>
-#include "customtablemodel.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
-struct book{
-     int id;
-     QString name;
-     QString author;
-     QString year;
-     book *next;
- };
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
+private:
+    QList<QList<QString> > Matrix;
+    short int tableCols;
+    short int tableRows;
+    short int currIndex;
+
 public:
     MainWindow(QWidget *parent = nullptr);
+
+    void createDefaultTableView();
+    void createTableView();
+    void setDefaultMatrix();
+    void errorMessage();
     ~MainWindow();
 
 private slots:
@@ -30,16 +32,6 @@ private slots:
     void on_btn_delete_clicked();
 
 private:
-    int iter_item = 0;
     Ui::MainWindow *ui;
-    book *first;
-    book *frst;
-
-    CustomTableModel tmodel;
 };
-
-
-
-
-
 #endif // MAINWINDOW_H

@@ -10,7 +10,7 @@ std::string lab3() {
 
     communicate *item;
     int N;
-    std::cout << "Полей будет: ";
+    std::cout << "Number of fields: ";
     std::cin >> N;
     item = new communicate[N];
 

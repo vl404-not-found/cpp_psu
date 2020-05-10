@@ -21,5 +21,7 @@ std::string lab2() {
     float first_result = mean(main_array, n);
     float second_result = mean(slave_array, n);
     std::cout << first_result << "\n" << second_result << std::endl;
+    delete[] main_array;
+    delete[] slave_array;
     return "\nOk";
 }

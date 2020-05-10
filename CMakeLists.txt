@@ -12,12 +12,19 @@ set(CMAKE_AUTORCC ON)
 find_package(Qt5 COMPONENTS Widgets LinguistTools REQUIRED)
 
 file(GLOB all_files_SRC
-        "main.cpp"
-        "lab*/*.cpp"
-        "lab*/*.h"
-        "lib/*.h"
-        "lib/*.cpp"
+#        "main.cpp"
+        "lab5/*.cpp"
+        "lab5/*.h"
+#        "lib/*.h"
+#        "lib/*.cpp"
         )
+#file(GLOB all_files_SRC
+#        "main.cpp"
+#        "lab*/*.cpp"
+#        "lab*/*.h"
+#        "lib/*.h"
+#        "lib/*.cpp"
+#        )
 
 add_executable(cpp_psu ${all_files_SRC})
 

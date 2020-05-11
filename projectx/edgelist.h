@@ -17,6 +17,7 @@ public:
     int size();
     EdgeList *get(int );
     EdgeList *first();
+    EdgeList *push(Vertex *);
     EdgeList *last();
     void deleteList();
     ~EdgeList();

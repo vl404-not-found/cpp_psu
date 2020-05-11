@@ -40,8 +40,22 @@ Vertex::~Vertex() {
     this->prev->next = this->next;
 }
 
-void Vertex::matrixIncidenceToSpecificState(Vertex * first, int ** array, int num) {
+void Vertex::matrixIncidenceToSpecificState(Vertex * first, int ** array, int size) {
     //TODO: Сделать нормально перевод из матрицы.
+
+    first->deleteAll();
+    Vertex *temp = nullptr;
+
+    for (int i = 0; i < size; i++)
+        temp = new Vertex(new VertexGui, temp);
+
+
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            if (array[i][j] > 0)
+                temp->list->push(temp->get(j));
+        }
+    }
 }
 
 int Vertex::size() {

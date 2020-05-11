@@ -23,7 +23,7 @@ public:
     Vertex *first();
     Vertex *last();
     VertexGui *ui_element = nullptr;
-    void matrixIncidenceToSpecificState(Vertex *, int **,int);
+    static void matrixIncidenceToSpecificState(Vertex *, int **,int);
 private:
     EdgeList *list = nullptr;
     Vertex *prev = nullptr;

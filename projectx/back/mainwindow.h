@@ -8,7 +8,7 @@
 
 #include <QWidget>
 #include <QGraphicsScene>
-
+#include "vertex.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -35,7 +35,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QGraphicsScene *Graph = nullptr;
-
+    Vertex *initial = new Vertex(new VertexGui, nullptr);
 };
 
 

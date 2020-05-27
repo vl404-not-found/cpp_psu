@@ -16,7 +16,7 @@ class VertexGui : public QObject, public QGraphicsItem{
     Q_OBJECT
 public:
     explicit VertexGui(QObject *parent = nullptr);
-    ~VertexGui() override;
+    ~VertexGui();
 
 private:
     QRectF boundingRect() const override;

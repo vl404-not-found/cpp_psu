@@ -13,6 +13,6 @@ find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
 find_package(Qt5Widgets REQUIRED)
 
-add_executable(projectx main.cpp mainwindow.cpp mainwindow.h mainwindow.ui)
+add_executable(projectx main.cpp mainwindow.cpp mainwindow.h mainwindow.ui vertex.cpp vertex.h vertexgui.cpp vertexgui.h edgelist.cpp edgelist.h)
 
 target_link_libraries(projectx Qt5::Widgets)

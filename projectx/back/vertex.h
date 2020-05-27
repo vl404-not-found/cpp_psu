@@ -15,7 +15,7 @@ class EdgeList;
 class Vertex {
 
 public:
-    explicit Vertex(VertexGui*, Vertex *);
+    Vertex(VertexGui*, Vertex *);
     ~Vertex();
     void deleteAll();
     int size();

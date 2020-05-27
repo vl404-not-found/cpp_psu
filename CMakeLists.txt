@@ -52,12 +52,6 @@ add_executable(cpp_psu
         projectx/main.cpp
         projectx/mainwindow.cpp
         projectx/mainwindow.h
-        projectx/mainwindow.ui
-        projectx/vertex.cpp
-        projectx/vertex.h
-        projectx/vertexgui.cpp
-        projectx/vertexgui.h
-        projectx/edgelist.cpp
-        projectx/edgelist.h)
+        projectx/mainwindow.ui projectx/customlist.cpp projectx/customlist.h)
 
 target_link_libraries(cpp_psu Qt5::Widgets)

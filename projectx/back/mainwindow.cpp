@@ -9,6 +9,7 @@
 #include <QGraphicsScene>
 #include <QFileDialog>
 #include <iostream>
+#include "vertexgui.h"
 
 static int randomBetween(int low, int high) {
     return (qrand() % ((high + 1) - low) + low);
@@ -39,13 +40,12 @@ MainWindow::~MainWindow() {
 }
 
 void MainWindow::on_addBtn_clicked() {
-
-//    std::cout<<"\nfirst point\n";
-//    auto *item = new Vertex(new VertexGui, initial->last());
-//    std::cout<<"second point\n";
-//    item->ui_element->setPos(randomBetween(30, Graph->width()-30),randomBetween(30, Graph->height()-30));
-//    std::cout<< item->ui_element->x();
-//    Graph->addItem(item->ui_element);
+    std::cout<<"\nfirst point\n";
+    auto *item = new Vertex(new VertexGui, initial->last());
+    std::cout<<"second point\n";
+    item->ui_element->setPos(randomBetween(30, Graph->width()-30),randomBetween(30, Graph->height()-30));
+    std::cout<< item->ui_element->x();
+    Graph->addItem(item->ui_element);
 }
 
 void MainWindow::on_deleteBtn_clicked() {

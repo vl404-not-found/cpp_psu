@@ -12,15 +12,16 @@ class Node {
 public:
     Node(TOV, Node *, Node *);
 
-//    ~Node() {
-//        if (this->prev != nullptr && this->next != nullptr){
-//            this->prev->next = this->next;
-//            this->next->prev = this->prev;
-//        } else if (this->prev == nullptr){
-//            this->next->prev = nullptr;
-//        } else
-//            this->prev->next = nullptr;
-//    };
+    ~Node() {
+        if (this->prev != nullptr && this->next != nullptr){
+            auto *temp= this->prev;
+            this->prev->next = this->next;
+            this->next->prev = temp;
+        } else if (this->prev == nullptr)
+            this->next->prev = nullptr;
+        else if (this->next == nullptr)
+            this->prev->next = nullptr;
+    };
     TOV *src;
     Node *prev = nullptr;
     Node *next = nullptr;
@@ -33,15 +34,15 @@ private:
 public:
     CustomList() : first(nullptr) {};
 
-//    ~CustomList() {
-//        Node<TOV> *temp = first, *t2;
-//        if (first != nullptr)
-//            while (temp->next != nullptr) {
-//                t2 = temp->next;
-//                delete temp;
-//                temp = t2;
-//            }
-//    }
+    ~CustomList() {
+        Node<TOV> *temp = first, *t2;
+        if (first != nullptr)
+            while (temp->next != nullptr) {
+                t2 = temp->next;
+                delete temp;
+                temp = t2;
+            }
+    }
     Node<TOV> *get_first();
 
     Node<TOV> *get_last();
@@ -51,6 +52,8 @@ public:
     void push_end(TOV);
 
     int size();
+
+    void delete_item(int);
 };
 
 template<typename TOV>
@@ -119,6 +122,17 @@ int CustomList<TOV>::size() {
         }
     }
     return i;
+}
+
+template<typename TOV>
+void CustomList<TOV>::delete_item(int num) {
+    if (num == 0){
+        auto *temp = this->first;
+        this->first = this->first->next;
+        delete temp;
+    } else{
+        delete this->get(num);
+    }
 }
 
 #endif //CPP_PSU_CUSTOMLIST_H

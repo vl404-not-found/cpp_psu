@@ -51,11 +51,19 @@ void MainWindow::on_addBtn_clicked() {
 }
 
 void MainWindow::on_deleteBtn_clicked() {
-
+    int j = 0;
+    for (int i = 0; i < Flist->size(); ++i)
+        if (Flist->get(j)->src->size() > Flist->get(i)->src->size())
+            j = i;
+    for (int i = 0; i < Flist->size(); ++i)
+        for (int k = 0; k < Flist->get(i)->src->size(); ++k)
+            if (j == *Flist->get(i)->src->get(k)->src)
+                Flist->get(i)->src->delete_item(k);
+    Flist->delete_item(j);
+    this->updateLines();
 }
 
 void MainWindow::on_update_clicked() {
-//    this->updateLines();
     int i = ui->head->toPlainText().toInt()-1, j = ui->toHead->toPlainText().toInt()-1;
     auto t1 = list_points.at(i);
     auto t2 = list_points.at(j);

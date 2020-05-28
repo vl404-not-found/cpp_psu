@@ -5,9 +5,10 @@
 #define PROJECTX_MAINWINDOW_H
 
 #include <QMainWindow>
-
 #include <QWidget>
 #include <QGraphicsScene>
+#include "customlist.h"
+#include "Vertex.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -20,8 +21,9 @@ class MainWindow : public QMainWindow{
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
+    void updateLines();
 private slots:
+
     void on_addBtn_clicked();
 
     void on_deleteBtn_clicked();
@@ -32,10 +34,12 @@ private slots:
 
     void on_download_clicked();
 
+    void on_upAllBtn_clicked();
 private:
     Ui::MainWindow *ui;
     QGraphicsScene *Graph = nullptr;
-
+    QList<Vertex *> list_points;
+    CustomList<CustomList<int>> *Flist;
 };
 
 

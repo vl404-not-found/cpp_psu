@@ -168,6 +168,23 @@
      <string>сохранить файлик</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="upAllBtn">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>670</y>
+      <width>131</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>я немного не
+разобрался поэтому, 
+если с графом что-то
+не так нажми  сюда
+</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -175,7 +192,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

@@ -56,6 +56,6 @@ add_executable(cpp_psu
         projectx/customlist.cpp
         projectx/customlist.h
         projectx/Vertex.cpp
-        projectx/Vertex.h projectx/dialog.cpp projectx/dialog.h)
+        projectx/Vertex.h)
 
 target_link_libraries(cpp_psu Qt5::Widgets)

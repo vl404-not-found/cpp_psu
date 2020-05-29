@@ -131,7 +131,49 @@ void MainWindow::on_upload_clicked() {
 }
 
 void MainWindow::on_download_clicked() {
+    QErrorMessage errorMessage;
+    errorMessage.showMessage("Создай txt файл и выбери его");
+    errorMessage.exec();
 
+    QString path = QFileDialog::getOpenFileName(nullptr, QObject::tr("Укажите файл базы данных"), QDir::homePath(),
+                                                QObject::tr("Нужный файлик (*.txt);;Все файлы (*.*)"));
+
+    QFile out(path);
+    if (out.open(QIODevice::WriteOnly)) {
+        QTextStream stream(&out);
+        QList<QList<int>> list_con;
+        for (int i = 0; i < Flist->size(); i++) {
+            QList<int> line_num;
+            int a = 0;
+            for (int j = 0; j < Flist->size(); j++) {
+                if (Flist->get(i)->src->size() > a) {
+                    if (*Flist->get(i)->src->get(a)->src == j) {
+                        line_num.append(1);
+                        a++;
+                    } else if (*Flist->get(i)->src->get(a)->src == i) {
+                        line_num.append(2);
+                        a++;
+                    } else {
+                        line_num.append(0);
+                    }
+                } else {
+                    line_num.append(0);
+                }
+            }
+            list_con.append(line_num);
+        }
+        for (int j = 0; j < Flist->size(); j++) {
+            for (int i = 0; i < Flist->get(j)->src->size(); i++) {
+//                if (list_con[j][*Flist->get(j)->src->get(i)->src] == 1)
+                list_con[j][j] = -1;
+            }
+            for (int k : list_con[j]) {
+                stream << k << "   ";
+            }
+            stream << endl;
+        }
+        out.close();
+    }
 }
 
 void MainWindow::updateLines() {

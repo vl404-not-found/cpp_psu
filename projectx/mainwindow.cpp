@@ -9,6 +9,7 @@
 #include <QGraphicsScene>
 #include <QFileDialog>
 #include <iostream>
+#include <QtWidgets/QErrorMessage>
 
 static int randomBetween(int low, int high) {
     return (qrand() % ((high + 1) - low) + low);
@@ -53,18 +54,24 @@ void MainWindow::on_addBtn_clicked() {
 void MainWindow::on_deleteBtn_clicked() {
     int j = 0;
     for (int i = 0; i < Flist->size(); ++i)
-        if (Flist->get(j)->src->size() > Flist->get(i)->src->size())
+        if (Flist->get(j)->src->size() < Flist->get(i)->src->size())
             j = i;
-    for (int i = 0; i < Flist->size(); ++i)
-        for (int k = 0; k < Flist->get(i)->src->size(); ++k)
-            if (j == *Flist->get(i)->src->get(k)->src)
-                Flist->get(i)->src->delete_item(k);
-    Flist->delete_item(j);
+    if (Flist->size() > 1) {
+        for (int i = 0; i < Flist->size(); ++i)
+            for (int k = 0; k < Flist->get(i)->src->size(); ++k)
+                if (j == *Flist->get(i)->src->get(k)->src)
+                    Flist->get(i)->src->delete_item(k);
+        Flist->delete_item(j);
+    } else {
+        QErrorMessage errorMessage;
+        errorMessage.showMessage("Ты не можешь удалить последнюю/несуществующую вершину!");
+        errorMessage.exec();
+    }
     this->updateLines();
 }
 
 void MainWindow::on_update_clicked() {
-    int i = ui->head->toPlainText().toInt()-1, j = ui->toHead->toPlainText().toInt()-1;
+    int i = ui->head->toPlainText().toInt() - 1, j = ui->toHead->toPlainText().toInt() - 1;
     auto t1 = list_points.at(i);
     auto t2 = list_points.at(j);
     Graph->addLine(t1->x(),
@@ -76,7 +83,51 @@ void MainWindow::on_update_clicked() {
 }
 
 void MainWindow::on_upload_clicked() {
+    QTextStream out(stdout);
 
+    QString path = QFileDialog::getOpenFileName(nullptr, QObject::tr("Укажите файл базы данных"), QDir::homePath(),
+                                                QObject::tr("Нужный файлик (*.txt);;Все файлы (*.*)"));
+    QFile file(path);
+    QTextStream in(&file);
+
+    if (!file.open(QIODevice::ReadOnly)) {
+        qWarning("Cannot open file for reading");
+    } else {
+        delete Flist;
+        QList<QList<int>> list_con;
+        while (!in.atEnd()) {
+            QString line = in.readLine();
+            QStringList list_str_num = line.split(" ", QString::SkipEmptyParts);
+            QList<int> line_num;
+            for (int i = 0; i < list_str_num.size(); i++)
+                line_num.append(list_str_num[i].toInt());
+            list_con.append(line_num);
+            CustomList<int> nl;
+            Flist->push_end(nl);
+        }
+        for (int j = 0; j < list_con.size(); ++j) {
+            int fix = -1;
+            bool begin = false;
+            for (int i = 0; i < list_con[j].size(); ++i) {
+                if (list_con[i][j] == 1 && fix > -1 && begin) {
+                    Flist->get(fix)->src->push_end(i);
+                    begin = false;
+                    fix = -1;
+                } else if (list_con[i][j] == -1 && begin) {
+                    Flist->get(fix)->src->push_end(i);
+                    begin = false;
+                    fix = i;
+                } else if (list_con[i][j] == 2)
+                    Flist->get(i)->src->push_end(i);
+                else if (list_con[i][j] == 1 || list_con[i][j] == -1) {
+                    fix = i;
+                    begin = true;
+                }
+            }
+        }
+        file.close();
+        this->updateLines();
+    }
 }
 
 void MainWindow::on_download_clicked() {

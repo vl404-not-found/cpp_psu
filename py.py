@@ -2,7 +2,7 @@ import os
 
 
 def func(x):
-    if x[:3] == "lab" or x[:3] == "lib":
+    if x[:3] == "pro":
         return 1
     else:
         return 0

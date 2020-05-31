@@ -94,6 +94,7 @@ void MainWindow::on_upload_clicked() {
         qWarning("Cannot open file for reading");
     } else {
         delete Flist;
+        Flist = new CustomList<CustomList<int>>;
         QList<QList<int>> list_con;
         while (!in.atEnd()) {
             QString line = in.readLine();
@@ -102,24 +103,24 @@ void MainWindow::on_upload_clicked() {
             for (int i = 0; i < list_str_num.size(); i++)
                 line_num.append(list_str_num[i].toInt());
             list_con.append(line_num);
+        }
+        for (int j = 0; j < list_con.size(); j++) {
             CustomList<int> nl;
             Flist->push_end(nl);
-        }
-        for (int j = 0; j < list_con.size(); ++j) {
             int fix = -1;
             bool begin = false;
-            for (int i = 0; i < list_con[j].size(); ++i) {
-                if (list_con[i][j] == 1 && fix > -1 && begin) {
+            for (int i = 0; i < list_con[j].size(); i++) {
+                if (list_con[j][i] == 1 && fix > -1 && begin) {
                     Flist->get(fix)->src->push_end(i);
                     begin = false;
                     fix = -1;
-                } else if (list_con[i][j] == -1 && begin) {
+                } else if (list_con[j][i] == -1 && begin) {
                     Flist->get(fix)->src->push_end(i);
                     begin = false;
                     fix = i;
-                } else if (list_con[i][j] == 2)
+                } else if (list_con[j][i] == 2)
                     Flist->get(i)->src->push_end(i);
-                else if (list_con[i][j] == 1 || list_con[i][j] == -1) {
+                else if (list_con[j][i] == 1 || list_con[j][i] == -1) {
                     fix = i;
                     begin = true;
                 }
@@ -140,40 +141,47 @@ void MainWindow::on_download_clicked() {
 
     QFile out(path);
     if (out.open(QIODevice::WriteOnly)) {
+        int les = 0;
         QTextStream stream(&out);
         QList<QList<int>> list_con;
         for (int i = 0; i < Flist->size(); i++) {
             QList<int> line_num;
-            int a = 0;
-            for (int j = 0; j < Flist->size(); j++) {
-                if (Flist->get(i)->src->size() > a) {
-                    if (*Flist->get(i)->src->get(a)->src == j) {
-                        line_num.append(1);
-                        a++;
-                    } else if (*Flist->get(i)->src->get(a)->src == i) {
-                        line_num.append(2);
-                        a++;
-                    } else {
-                        line_num.append(0);
-                    }
-                } else {
-                    line_num.append(0);
-                }
-            }
             list_con.append(line_num);
+            les += Flist->get(i)->src->size();
         }
         for (int j = 0; j < Flist->size(); j++) {
-            for (int i = 0; i < Flist->get(j)->src->size(); i++) {
-//                if (list_con[j][*Flist->get(j)->src->get(i)->src] == 1)
-                list_con[j][j] = -1;
+            int a = 0;
+            for (int i = 0; i < les; i++) {
+                if (a < Flist->get(j)->src->size()) {
+                    if (*Flist->get(j)->src->get(a)->src == i && *Flist->get(j)->src->get(a)->src != j) {
+                        list_con[j].append(1);
+                        a++;
+                    } else if (*Flist->get(j)->src->get(a)->src == j) {
+                        list_con[j].append(2);
+                        a++;
+                    } else
+                        list_con[j].append(0);
+                } else
+                    list_con[j].append(0);
             }
-            for (int k : list_con[j]) {
-                stream << k << "   ";
+        }
+        for (int k = 0; k < Flist->size(); ++k) {
+            for (int j = 0; j < Flist->get(k)->src->size(); ++j) {
+                if (*Flist->get(k)->src->get(j)->src != k) {
+                    list_con[*Flist->get(k)->src->get(j)->src][k] = -1;
+                }
+            }
+        }
+
+        for (auto & i : list_con) {
+            for (int j: i) {
+                stream << j << "   ";
             }
             stream << endl;
         }
-        out.close();
     }
+    out.close();
+
 }
 
 void MainWindow::updateLines() {

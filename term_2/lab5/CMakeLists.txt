@@ -28,19 +28,19 @@ find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
 if(ANDROID)
   add_library(lab5 SHARED
-    main.cpp
-    mainwindow.cpp
-    mainwindow.h
-    mainwindow.ui
+          main.cpp
+          mainwindow.cpp
+          mainwindow.h
+          mainwindow.ui
   )
 else()
   add_executable(lab5
-    main.cpp
-    mainwindow.cpp
-    mainwindow.h
-    mainwindow.ui
-    customtablemodel.h
-    customtablemodel.cpp
+          main.cpp
+          mainwindow.cpp
+          mainwindow.h
+          mainwindow.ui
+          customtablemodel.h
+          customtablemodel.cpp
   )
 endif()
 

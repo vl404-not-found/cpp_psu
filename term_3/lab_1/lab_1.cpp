@@ -39,6 +39,6 @@ int search_rec(const vector<int>& nums, int value, int l = 0, int r = -1) {
 
 void lab_1() {
     vector<int> main = {1, 2, 3, 4, 5, 88, 9283, 2432, 7777};
-    cout << search(main, 88) << endl;
+    cout << search(main, 4) << endl;
     cout << search_rec(main, 4);
 }

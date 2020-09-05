@@ -8,6 +8,7 @@
 #include <string>
 #include <utility>
 #include <vector>
+#include <iostream>
 
 using namespace std;
 
@@ -18,10 +19,12 @@ private:
     string author;
     string name;
     string pub;
-    int year;
-    int nop;
+    int year{};
+    int nop{};
 
     explicit Book(string, string, string, int, int);
+
+    explicit Book() = default;
 
 public:
     int getYear() const { return this->year; };
@@ -51,6 +54,14 @@ public:
     static void findByPub(vector<Book>, const string &);
 
     static void findIfMoreThenYear(vector<Book>, int);
+
+    ~Book() {
+        std::cout << "Oh yes, this is destructor";
+    }
+
+    Book(const Book &obj) {
+        cout << "Copy object\n";
+    }
 };
 
 

@@ -17,22 +17,22 @@ Book::Book(string author, string name, string pub, int year, int nop) {
     this->nop = nop;
 }
 
-Book *Book::createBook() {
+Book Book::createBook() {
     string name, author, pub;
     int year, nop = 0;
     std::cout << "\nName: ";
     std::cin >> name;
     std::cout << "Author: ";
     std::cin >> author;
-    std::cout << "Publish: ";
+    std::cout << "Publisher: ";
     std::cin >> pub;
     std::cout << "Year: ";
     std::cin >> year;
     std::cout << "Number of pages: ";
     std::cin >> nop;
-    if (name.empty() || author.empty() || int(year) > 0 || int(nop) > 0)
-        throw "Undefined one or more values";
-    return new Book(author, name, pub, year, nop);
+    if (name.empty() || author.empty() || int(year) < 0 || int(nop) < 0)
+        throw "Undefined one or more values \n";
+    return Book(author, name, pub, year, nop);
 }
 
 void Book::findByAuthor(vector<Book> books, const string &author) {
@@ -40,7 +40,7 @@ void Book::findByAuthor(vector<Book> books, const string &author) {
     while (book != books.end()) {
         if (book->author == author)
             std::cout << book->name << " / Автор: " << book->author << " / Издательство: " << book->pub << " / "
-                      << book->nop << "страниц / Год:" << book->year << std::endl;
+                      << book->nop << " страниц / Год:" << book->year << std::endl;
         ++book;
     }
 }

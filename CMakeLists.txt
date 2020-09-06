@@ -3,8 +3,8 @@ project(cpp_psu)
 
 file(GLOB all_files_SRC
         main.cpp
-        term_3/lab_*/*.cpp
-        term_3/lab_*/*.h)
+        term_3/lab_3/*.cpp
+        term_3/lab_3/*.h)
 
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)

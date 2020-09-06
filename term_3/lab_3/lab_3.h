@@ -16,17 +16,15 @@ void main_lab_3();
 
 class Book {
 private:
-    string author;
-    string name;
-    string pub;
-    int year{};
-    int nop{};
-
-    explicit Book(string, string, string, int, int);
+    string author, name, pub;
+    int year, nop;
+    Book *next = nullptr;
 
     explicit Book() = default;
 
 public:
+    explicit Book(string, string, string, int, int);
+
     int getYear() const { return this->year; };
 
     int getNop() const { return this->nop; };
@@ -36,6 +34,10 @@ public:
     string getAuthor() const { return this->author; };
 
     string getPub() const { return this->pub; };
+
+    Book *getNext() const { return this->next; };
+
+    void setNext(Book * i) { this->next = i; };
 
     void setYear(int i) { this->year = i; };
 
@@ -56,12 +58,35 @@ public:
     static void findIfMoreThenYear(vector<Book>, int);
 
     ~Book() {
-        std::cout << "Oh yes, this is destructor";
+        std::cout << "\n [DEBUG] Oh, this is destructor \n";
     }
 
-    Book(const Book &obj) {
-        cout << "Copy object\n";
+    Book(const Book &obj) : author(obj.getAuthor()),
+                            name(obj.getName()),
+                            pub(obj.getName()),
+                            nop(obj.getNop()),
+                            year(obj.getYear()) {
+        cout << "\n [DEBUG] Copy object\n";
     }
+
+    friend class Observer;
+
+    friend class ListBook;
+};
+
+class ListBook {
+private:
+    Book *element = nullptr;
+public:
+    Book *getElement() { return this->element; };
+
+    Book *next();
+};
+
+
+class Observer {
+public:
+    static void getInfo(Book &obj);
 };
 
 

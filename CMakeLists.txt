@@ -19,6 +19,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 #find_package(Qt5Widgets REQUIRED)
 
-add_executable(cpp_psu ${all_files_SRC})
+add_executable(cpp_psu ${all_files_SRC} term_3/lab_4/lab_4.cpp term_3/lab_4/lab_4.h term_3/lab_4/main_funcs.cpp)
 
 #target_link_libraries(cpp_psu Qt5::Widgets)

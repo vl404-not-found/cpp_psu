@@ -8,5 +8,5 @@
 
 
 void Employee::getInfo() {
-    cout << "";
+    cout << " ";
 }

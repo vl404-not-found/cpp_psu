@@ -14,9 +14,10 @@ class Persona{
 private:
 protected:
     string firstName, lastName;
-    int monthRate = 12000, missingHour = 0, rewardFactor = 1;
+    int monthRate = 12000, missingHour = 0, rewardFactor = 1, monthFine = 0;
 public:
     virtual void getInfo() = 0;
+    virtual void missingHourToFine() = 0;
 };
 
 class Employee: Persona{

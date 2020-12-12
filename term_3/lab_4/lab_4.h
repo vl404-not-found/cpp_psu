@@ -18,6 +18,11 @@ protected:
     string firstName, lastName;
     int monthRate = 12000, missingHour = 0, rewardFactor = 1, monthFine = 0;
 public:
+
+    explicit Persona(const string& ,const string& , int );
+
+    explicit Persona(const string& ,const string&);
+
     const string &getFirstName() const;
 
     void setFirstName(const string &firstName);
@@ -53,6 +58,8 @@ private:
     string corpTransport = "_none";
     int costMovements = 0;
 public:
+    static void createPersona(vector<Employee> *);
+
     void getInfo() override;
 
     void missingHourToFine() override;
@@ -62,6 +69,7 @@ class Worker : Persona {
 private:
     string currentFacility = "_none";
 public:
+
     const string &getCurrentFacility() const;
 
     void setCurrentFacility(const string &currentFacility);

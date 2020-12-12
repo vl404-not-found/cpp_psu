@@ -5,20 +5,33 @@
 #include <cmath>
 #include <iostream>
 #include "lab_4.h"
-#include "vector"
+//#include "vector"
 
 void main_lab() {
     auto listEmp = new vector<Employee>;
-    bool flag = true;
+    int num = 0;
+    while (true) {
+        cout << "Команды :" << endl << "добавить пользователя -- 1" << endl << "пересчёт зп -- 2" << endl << "вывод всех сотрудников -- 3" << endl;
+        cin >> num;
 
-//    float res = 0;
-//    for (int i = 0; i <= 2; i++)
-//        res = sqrt(float(i) + sqrt(res));
-//    cout << res;
-
-
-//    while (flag){
-//        Employee item = Employee();
-//        listEmp->push_back(item);
-//    }
+        switch (num) {
+            case 1:
+                Employee::createPersona(listEmp);
+                break;
+            case 2: {
+                vector<Employee>::iterator it;
+                for (it = listEmp->begin(); it != listEmp->end(); it++)
+                    it->missingHourToFine();
+                break;
+            }
+            case 3: {
+                vector<Employee>::iterator it;
+                for (it = listEmp->begin(); it != listEmp->end(); it++)
+                    it->getInfo();
+                break;
+            }
+            default:
+                return;
+        }
+    }
 }

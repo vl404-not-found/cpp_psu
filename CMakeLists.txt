@@ -3,6 +3,7 @@ project(cpp_psu)
 
 file(GLOB all_files_SRC
         main.cpp
+        other/test.h
         term_3/lab_4/*.cpp
         term_3/lab_4/*.h)
 
@@ -19,6 +20,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 #find_package(Qt5Widgets REQUIRED)
 
-add_executable(cpp_psu ${all_files_SRC} )
+add_executable(cpp_psu ${all_files_SRC})
 
 #target_link_libraries(cpp_psu Qt5::Widgets)

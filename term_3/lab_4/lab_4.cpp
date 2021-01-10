@@ -8,17 +8,17 @@
 
 void Employee::createPersona(vector<Employee> *_list) {
     string f_name, l_name, corp_t; bool qe; int monthRate;
-    cout << "\n Ââåäèòå èìÿ: "; cin >> f_name;
-    cout << "\n Ââåäèòå ôàìèëèþ: "; cin >> f_name;
-    cout << "\n Ââåäèòå ñòàâêó: "; cin >> monthRate;
-    cout << "\n Âûäåëåí ëè  òðàíñïîðò?: "; cin >> qe;
+    cout << "\n Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð¼Ñ: "; cin >> f_name;
+    cout << "\n Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ„Ð°Ð¼Ð¸Ð»Ð¸ÑŽ: "; cin >> f_name;
+    cout << "\n Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÑÑ‚Ð°Ð²ÐºÑƒ: "; cin >> monthRate;
+    cout << "\n Ð’Ñ‹Ð´ÐµÐ»ÐµÐ½ Ð»Ð¸  Ñ‚Ñ€Ð°Ð½ÑÐ¿Ð¾Ñ€Ñ‚?: "; cin >> qe;
     if (qe)
-        cout << "\n Êàêîé òðàíñïîðò: "; cin >> corp_t;
+        cout << "\n ÐšÐ°ÐºÐ¾Ð¹ Ñ‚Ñ€Ð°Ð½ÑÐ¿Ð¾Ñ€Ñ‚: "; cin >> corp_t;
 
 }
 
 void Persona::getInfo() {
-    cout << "Ñîòðóäíèê: " << this->firstName << " " << this->lastName;
+    cout << "Ð¡Ð¾Ñ‚Ñ€ÑƒÐ´Ð½Ð¸Ðº: " << this->firstName << " " << this->lastName;
 }
 
 void Persona::missingHourToFine() {
@@ -86,18 +86,18 @@ Persona::Persona(const string &firstName, const string &lastName) {
 
 
 void Employee::getInfo() {
-    cout << "Ñëóæàùèé:" << this->firstName << " " << this->lastName << ". Êîåôôèöåíò çï" << this->rewardFactor << ", ÇÏ"
-         << this->monthRate << ". Òðàíñïîðò " << this->corpTransport << "/ " << this->costMovements;
+    cout << "Ð¡Ð»ÑƒÐ¶Ð°Ñ‰Ð¸Ð¹:" << this->firstName << " " << this->lastName << ". ÐšÐ¾ÐµÑ„Ñ„Ð¸Ñ†ÐµÐ½Ñ‚ Ð·Ð¿" << this->rewardFactor << ", Ð—ÐŸ"
+         << this->monthRate << ". Ð¢Ñ€Ð°Ð½ÑÐ¿Ð¾Ñ€Ñ‚ " << this->corpTransport << "/ " << this->costMovements;
 }
 
 void Worker::getInfo() {
-    cout << "Ðàáî÷èé: " << this->firstName << " " << this->lastName << ". Êîåôôèöåíò çï" << this->rewardFactor << ", ÇÏ"
-         << this->monthRate << ".Òåêóùèé îáúåêò" << this->currentFacility;
+    cout << "Ð Ð°Ð±Ð¾Ñ‡Ð¸Ð¹: " << this->firstName << " " << this->lastName << ". ÐšÐ¾ÐµÑ„Ñ„Ð¸Ñ†ÐµÐ½Ñ‚ Ð·Ð¿" << this->rewardFactor << ", Ð—ÐŸ"
+         << this->monthRate << ".Ð¢ÐµÐºÑƒÑ‰Ð¸Ð¹ Ð¾Ð±ÑŠÐµÐºÑ‚" << this->currentFacility;
 }
 
 void Engineer::getInfo() {
-    cout << "Èíæåíåð: " << this->firstName << " " << this->lastName << ". Êîåôôèöåíò çï" << this->rewardFactor << ", ÇÏ"
-         << this->monthRate << ". Ðàáî÷àÿ ïàïêà" << this->workFolder;
+    cout << "Ð˜Ð½Ð¶ÐµÐ½ÐµÑ€: " << this->firstName << " " << this->lastName << ". ÐšÐ¾ÐµÑ„Ñ„Ð¸Ñ†ÐµÐ½Ñ‚ Ð·Ð¿" << this->rewardFactor << ", Ð—ÐŸ"
+         << this->monthRate << ". Ð Ð°Ð±Ð¾Ñ‡Ð°Ñ Ð¿Ð°Ð¿ÐºÐ°" << this->workFolder;
 }
 
 

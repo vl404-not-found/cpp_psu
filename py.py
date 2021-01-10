@@ -2,7 +2,7 @@ import os
 
 
 def func(x):
-    if x[:3] == "pro":
+    if x[:3] == "lab":
         return 1
     else:
         return 0
@@ -13,11 +13,11 @@ def func_file(x):
     else:
         return 0
 
-dir = os.path.abspath(os.curdir)
+dir = os.path.join(os.path.abspath(os.curdir), 'term_3')
 
 # print("jjjjjjjjjjjjoi"[-4:])
 
-l_folder = list(filter(func, os.listdir()))
+l_folder = list(filter(func, os.listdir(dir)))
 
 all = ""
 
